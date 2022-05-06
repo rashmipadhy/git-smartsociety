@@ -13,17 +13,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.kfxlabs.smartsociety.Activity.DgActivity;
+import com.kfxlabs.smartsociety.Activity.EnergyActivity;
 import com.kfxlabs.smartsociety.Activity.LoginActivity;
 import com.kfxlabs.smartsociety.Activity.ProfileActivity;
+import com.kfxlabs.smartsociety.Activity.PumpActivity;
+import com.kfxlabs.smartsociety.Activity.WaterActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     SharedPreferences userCredentials;
+    Button dgbtn;
+    Button waterbtn;
+    Button pumpbtn;
+    Button energybtn;
+
+
+
 
     static String phoneNumber, userName, email, orgId;
   //   LinearLayout dg_img;
@@ -39,9 +50,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+
+        dgbtn = findViewById(R.id.dg_img);
+        waterbtn = findViewById(R.id.water_img);
+        pumpbtn = findViewById(R.id.pump_img);
+        energybtn = findViewById(R.id.energy_img);
+
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
+        dgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DgActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        waterbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WaterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        energybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EnergyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        pumpbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PumpActivity.class);
+                startActivity(intent);
+            }
+        });
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -67,6 +119,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.setting_menu) {
+            Toast.makeText(this, "Setting Menu", Toast.LENGTH_SHORT).show();
+        } else if(item.getItemId() == R.id.bell_menu) {
+            Toast.makeText(this, "Bell Menu", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

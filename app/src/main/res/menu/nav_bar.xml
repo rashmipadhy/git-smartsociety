@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_back"
         android:icon="@drawable/back"
         android:title="Setting Cancel"
-
         android:visible="false"/>
 
+    <item android:id="@+id/bell_menu"
+        android:icon="@drawable/notification"
+        android:title="Notification"
+        app:showAsAction="always"/>
     <item
         android:icon="@drawable/notify"
-        android:id="@+id/action_notify"
+        android:id="@+id/setting_menu"
         android:title="Setting"
+        app:showAsAction="never"
    />
 
 </menu>

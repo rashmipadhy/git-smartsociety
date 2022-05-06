@@ -63,17 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Profile");
         }
 
-      //  String name = (getIntent().getStringExtra("user_name"));
-       // String cap_name = "";
-       // if(name!=null){
-         //   cap_name = name.substring(0,1).toUpperCase()+ name.substring(1).toLowerCase();
-      //  }
-/*
-        userName.setText(cap_name);
-        userphone.setText(getIntent().getStringExtra("uphone"));
-        email.setText(getIntent().getStringExtra("email"));
-        orgid.setText(getIntent().getStringExtra("orgId"));
-*/
+
     }
 
     @Override

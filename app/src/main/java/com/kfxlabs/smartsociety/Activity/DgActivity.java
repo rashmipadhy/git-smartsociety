@@ -12,5 +12,11 @@ public class DgActivity extends AppCompatActivity {
      protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dg);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
+            getSupportActionBar().setTitle("DG Monitoring");
+        }
     }
 }

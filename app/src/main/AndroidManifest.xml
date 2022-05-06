@@ -14,8 +14,15 @@
         android:theme="@style/Theme.SmartSociety"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Activity.WaterActivity"
+            android:name=".Activity.EnergyActivity"
             android:exported="true" />
+        <activity
+            android:name=".Activity.PumpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.WaterActivity"
+            android:exported="true"
+            />
         <activity
             android:name=".Activity.DgActivity"
             android:exported="true" />

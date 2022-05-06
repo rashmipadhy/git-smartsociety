@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">SmartSociety</string>
+    <string name="app_name">Smart Society</string>
+    <string name="dg">Dg Monitoring</string>
+    <string name="pump">Pump Monitoring</string>
+    <string name="water">Water Management</string>
+    <string name="energy">Energy Management</string>
     <string name="url_settings">URL</string>
     <string name="port_number">PORT NUMBER</string>
     <string name="title_activity_navigation">NavigationActivity</string>

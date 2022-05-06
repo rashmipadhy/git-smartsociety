@@ -6,12 +6,16 @@
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable-mdpi/head_bg.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/back.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/hamburger.xml" value="0.1" />
+        <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/ic_baseline_build_circle_24.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/input_bg.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/loading.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/mail_01.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/main_button.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/otp_bg.xml" value="0.1" />
+        <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/settings.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/user.xml" value="0.10277777777777777" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/drawable/user_01.xml" value="0.10277777777777777" />
@@ -37,6 +41,7 @@
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/layout/nav_header_navigation.xml" value="0.5" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/layout/nav_main.xml" value="0.14791666666666667" />
+        <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/layout/test_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/menu/activity_main_drawer.xml" value="0.16129032258064516" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/menu/general_menu.xml" value="0.1" />
         <entry key="..\:/Users/ntkos/AndroidStudioProjects/SmartSociety3/app/src/main/res/menu/main_buttons.xml" value="0.17552083333333332" />
