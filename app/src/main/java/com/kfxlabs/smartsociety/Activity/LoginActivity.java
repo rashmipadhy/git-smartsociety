@@ -17,6 +17,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -78,6 +79,13 @@ public class LoginActivity extends AppCompatActivity {
  //   @SuppressLint("HardwareIds")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        String LoggedInDetail = SharedPrefManager.getInstance(LoginActivity.this).getloggedInDetail();
+        if (LoggedInDetail.equalsIgnoreCase("True")){
+            navigate();
+        }
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -89,6 +97,9 @@ public class LoginActivity extends AppCompatActivity {
 
         progressDialog =  new ProgressDialog(LoginActivity.this);
         loadingDialog = new LoadingDialog(LoginActivity.this);
+
+        String storedUserphone = SharedPrefManager.getInstance(this).getphoneNumber();
+        etPhoneNumber.setText(storedUserphone);
 
 
         eRegister = findViewById(R.id.tvRegister);
@@ -162,16 +173,20 @@ public class LoginActivity extends AppCompatActivity {
         loginAPIService.savePost(androidID, uid, pwd).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-//                Toast.makeText(LoginActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
                 Log.d("Success", response.toString());
-
+                
+                SharedPrefManager.getInstance(LoginActivity.this).storeUserPhone(uid);
 
                 int responsecode = response.code();
                 if (responsecode == 200) {
+                    SharedPrefManager.getInstance(LoginActivity.this).storeLoginInfo("True");
+
+
 
                     SharedPrefManager.getInstance(LoginActivity.this);
-                    navigate();
+                   // navigate();
+                    fcmtokenPost(androidID,uid);
+
                 } else {
 //
                     Toast.makeText(LoginActivity.this, "Please Enter the correct details", Toast.LENGTH_LONG).show();
@@ -183,6 +198,51 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
                 Log.d("Failure", t.toString());
+            }
+        });
+    }
+
+    public void fcmtokenPost(final String androidId,final String uphone){
+        getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+            @Override
+            public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                if (task.isSuccessful()){
+                    String token = Objects.requireNonNull(task.getResult()).getToken();
+                    Log.i("Fcm Token",token);
+                    fAPIService.savePost(androidId,uphone,token).enqueue(new Callback<FcmTokenPost>() {
+                        @Override
+                        public void onResponse(Call<FcmTokenPost> call, Response<FcmTokenPost> response) {
+                            System.out.println("uphone" + uphone);
+                            if (response.isSuccessful()){
+                                if(response.body().getReply().equals("OK")){
+                                    if(isNetworkAvailable()){
+                                        navigate();
+                                    }else{
+                                        Toast.makeText(LoginActivity.this, "Please check the internet connection", Toast.LENGTH_SHORT).show();
+                                    }
+                                }else {
+                                    Toast.makeText(LoginActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
+                                }
+                            }else{
+                                try {
+                                    if (response.errorBody() != null) {
+                                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                                        Toast.makeText(getApplicationContext(), jObjError.getString("Reply"), Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<FcmTokenPost> call, Throwable t) {
+                            Log.e("POST", "Unable to submit post to API.Please check the URL");
+                        }
+                    });
+                }else{
+                    Toast.makeText(LoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -212,7 +272,16 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int selected_item_id = item.getItemId();
+        if (selected_item_id == android.R.id.home) {
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);

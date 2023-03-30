@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "479338365949",
+    "project_id": "smartsociety-a8c85",
+    "storage_bucket": "smartsociety-a8c85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479338365949:android:545bb076e8c79fba12cf94",
+        "android_client_info": {
+          "package_name": "com.kfxlabs.smartsociety"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479338365949-6o8j778q2bfu6d4d3311m61la02v38bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFsUD7V9M3vG0GEkGXCOuhMr4lewStRcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479338365949-6o8j778q2bfu6d4d3311m61la02v38bn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

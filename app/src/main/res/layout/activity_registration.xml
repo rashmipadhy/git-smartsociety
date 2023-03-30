@@ -33,10 +33,9 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:text="Rucha"
         android:paddingLeft="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFF"
+        android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,16 +51,17 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Phone"
-        android:text="8007888237"
         android:inputType="text|phone"
         android:paddingLeft="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFF"
+        android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.232" />
+        app:layout_constraintEnd_toEndOf="@+id/etrUserName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etrUserName"
+        app:layout_constraintTop_toBottomOf="@+id/etrUserName"
+        app:layout_constraintVertical_bias="0.032" />
+
 
     <EditText
         android:id="@+id/etrEmail"
@@ -72,16 +72,16 @@
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Email"
-        android:text="rucha.n@kfxlabs.com"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFF"
+        android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317" />
+        app:layout_constraintEnd_toEndOf="@+id/etrPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etrPhone"
+        app:layout_constraintTop_toBottomOf="@+id/etrPhone"
+        app:layout_constraintVertical_bias="0.036" />
 
     <EditText
         android:id="@+id/etrOrgid"
@@ -89,20 +89,19 @@
         android:layout_height="39dp"
         android:background="@drawable/input_bg"
         android:drawableLeft="@drawable/key"
-        android:text="123"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Organisation Id"
         android:inputType="text|number"
         android:paddingLeft="10dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFF"
+        android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
-
+        app:layout_constraintEnd_toEndOf="@+id/etrEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etrEmail"
+        app:layout_constraintTop_toBottomOf="@+id/etrEmail"
+        app:layout_constraintVertical_bias="0.036" />
 
     <EditText
         android:id="@+id/etrPassword"
@@ -115,17 +114,14 @@
         android:hint="Password"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
-        android:text="123456"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFF"
+        android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
-
-
-
+        app:layout_constraintEnd_toEndOf="@+id/etrOrgid"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etrOrgid"
+        app:layout_constraintTop_toBottomOf="@+id/etrOrgid"
+        app:layout_constraintVertical_bias="0.04" />
 
     <Button
         android:id="@+id/rbutton"
@@ -137,10 +133,10 @@
         app:backgroundTint="@color/btn_01"
         app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintEnd_toEndOf="@+id/etrPassword"
+        app:layout_constraintStart_toStartOf="@+id/etrPassword"
+        app:layout_constraintTop_toBottomOf="@+id/etrPassword"
+        app:layout_constraintVertical_bias="0.079" />
 
     <TextView
         android:id="@+id/alreadyUser"
@@ -151,7 +147,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.31"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
@@ -162,11 +157,11 @@
         android:layout_height="wrap_content"
         android:text="Login here"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/alreadyUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.773"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/alreadyUser"
         app:layout_constraintVertical_bias="0.977" />
 
 

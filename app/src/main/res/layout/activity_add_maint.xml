@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    tools:context=".Activity.AddMaintActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/head_bg"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+ <ImageView
+        android:id="@+id/dgimgnavbg"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        android:src="@drawable/head_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/dgcv_user_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/white"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+
+        app:strokeWidth="1dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="577dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/et_maintdate"
+                android:layout_width="241dp"
+                android:layout_height="52dp"
+                android:background="@drawable/tv_back"
+                android:drawableEnd="@drawable/date_01"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center_vertical"
+                android:hint="Date"
+                android:paddingStart="20dp"
+                android:paddingTop="7dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="7dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                tools:layout_editor_absoluteX="63dp"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/date"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_maintdate"
+                app:layout_constraintEnd_toStartOf="@id/et_maintdate"
+                app:layout_constraintTop_toTopOf="@id/et_maintdate"/>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_mainttype"
+                android:clickable="true"
+                android:spinnerMode="dialog"
+                android:pointerIcon="arrow"
+                android:prompt="@string/mtype"
+                android:textColor="@color/black"
+                android:focusable="true"
+                android:editable="false"
+                android:gravity="center_vertical"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_maintdate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                android:background="@drawable/tv_back"/>
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/maintenance"
+                android:layout_marginStart="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_mainttype"
+                app:layout_constraintEnd_toStartOf="@id/et_mainttype"
+                app:layout_constraintTop_toTopOf="@id/et_mainttype"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:id="@+id/et_enginehrs"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="@color/black"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:inputType="number"
+                android:textSize="18sp"
+                android:hint="eng_hrs"
+                app:layout_constraintTop_toBottomOf="@+id/et_mainttype"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.1"
+                android:background="@drawable/tv_back"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/time_01"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_enginehrs"
+                app:layout_constraintEnd_toStartOf="@id/et_enginehrs"
+                app:layout_constraintTop_toTopOf="@id/et_enginehrs"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:id="@+id/et_maintremark"
+                android:layout_marginStart="60dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="20dp"
+                android:justificationMode="inter_word"
+                android:paddingEnd="20dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:inputType="textMultiLine"
+                android:textSize="18sp"
+                android:hint="remarks"
+                app:layout_constraintTop_toBottomOf="@+id/et_enginehrs"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.15"
+                android:background="@drawable/tv_back"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/remark"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_maintremark"
+                app:layout_constraintEnd_toStartOf="@id/et_maintremark"
+                app:layout_constraintTop_toBottomOf="@id/et_enginehrs"/>
+
+            <Button
+                android:id="@+id/save_maint"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/input_bg"
+                android:clickable="true"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/et_maintremark"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/et_maintremark"
+                app:layout_constraintTop_toBottomOf="@id/et_maintremark"
+                app:layout_constraintVertical_bias="0.2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
+
+    <!--ImageView
+        android:id="@+id/dgimgnavbg"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="70dp"
+        android:src="@drawable/head_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/et_maintdate"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="false"
+        android:textColor="@color/black"
+        android:editable="false"
+        android:gravity="center_vertical"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="40dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textSize="18sp"
+        android:drawableEnd="@drawable/date"
+        android:hint="Date"
+        app:layout_constraintTop_toBottomOf="@+id/dgimgnavbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        android:background="@drawable/input_bg"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/date"
+        android:scaleType="fitXY"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/et_maintdate"
+        app:layout_constraintEnd_toStartOf="@id/et_maintdate"
+        app:layout_constraintTop_toTopOf="@id/et_maintdate"/>
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_mainttype"
+        android:clickable="true"
+        android:spinnerMode="dialog"
+        android:pointerIcon="arrow"
+        android:prompt="@string/mtype"
+        android:textColor="@color/black"
+        android:focusable="true"
+        android:editable="false"
+        android:gravity="center_vertical"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="40dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_maintdate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        android:background="@drawable/input_bg"/>
+
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/date"
+        android:layout_marginStart="10dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/et_mainttype"
+        app:layout_constraintEnd_toStartOf="@id/et_mainttype"
+        app:layout_constraintTop_toTopOf="@id/et_mainttype"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:id="@+id/et_enginehrs"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:hint="Engine Hrs"
+        app:layout_constraintTop_toBottomOf="@+id/et_mainttype"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        android:background="@drawable/input_bg"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/date"
+        android:scaleType="fitXY"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/et_enginehrs"
+        app:layout_constraintEnd_toStartOf="@id/et_enginehrs"
+        app:layout_constraintTop_toTopOf="@id/et_enginehrs"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        android:id="@+id/et_maintremark"
+        android:layout_marginStart="60dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="40dp"
+        android:paddingStart="20dp"
+        android:justificationMode="inter_word"
+        android:paddingEnd="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:lines="3"
+        android:maxLines="3"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
+        android:hint="Remarks"
+        app:layout_constraintTop_toBottomOf="@+id/et_enginehrs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        android:background="@drawable/input_bg"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/remark"
+        android:scaleType="fitXY"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/et_maintremark"
+        app:layout_constraintEnd_toStartOf="@id/et_maintremark"
+        app:layout_constraintTop_toBottomOf="@id/et_enginehrs"/>
+
+    <Button
+        android:id="@+id/save_maint"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@drawable/head_bg"
+        android:clickable="true"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Save"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/et_maintremark"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"/-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

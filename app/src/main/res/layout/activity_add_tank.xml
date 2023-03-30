@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AddTankActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/head_bg"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/dgimgnavbg"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        android:src="@drawable/head_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.25">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dgcv_user_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/white"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:backgroundTint="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                tools:context="com.kfxlabs.dgApplication.motor.AddMotor">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/location"
+                    app:layout_constraintBottom_toBottomOf="@id/tankLoc"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tankLoc"
+                    app:layout_constraintTop_toTopOf="@id/tankLoc" />
+
+                <EditText
+                    android:id="@+id/tankLoc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Tank Location"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/dgview1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/tankLoc"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/tankLoc" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/kva"
+                    app:layout_constraintBottom_toBottomOf="@id/t_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/t_name"
+                    app:layout_constraintTop_toTopOf="@id/t_name" />
+
+                <EditText
+                    android:id="@+id/t_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview2"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Tank Name"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview1" />
+
+                <View
+                    android:id="@+id/dgview2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/t_name"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_name" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/lock_01"
+                    app:layout_constraintBottom_toBottomOf="@id/t_devid"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/t_devid"
+                    app:layout_constraintTop_toTopOf="@id/t_devid" />
+
+                <EditText
+                    android:id="@+id/t_devid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview3"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Device Id"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview2" />
+
+                <View
+                    android:id="@+id/dgview3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/t_devid"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_devid" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/model"
+                    app:layout_constraintBottom_toBottomOf="@id/t_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/t_type"
+                    app:layout_constraintTop_toTopOf="@id/t_type" />
+
+                <EditText
+                    android:id="@+id/t_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Tank Type"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview4" />
+
+                <View
+                    android:id="@+id/dgview5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/t_type"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_type" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/key01"
+                    app:layout_constraintBottom_toBottomOf="@+id/t_upin"
+                    app:layout_constraintRight_toLeftOf="@id/t_upin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/t_upin"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/t_upin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Unit Pin"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview3" />
+
+                <View
+                    android:id="@+id/dgview4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/t_upin"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_upin" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/kva"
+                    app:layout_constraintBottom_toBottomOf="@id/t_capacity"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/t_capacity"
+                    app:layout_constraintTop_toTopOf="@id/t_capacity" />
+
+                <EditText
+                    android:id="@+id/t_capacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Tank Capacity"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview5" />
+
+                <View
+                    android:id="@+id/dgview6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/t_capacity"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_capacity" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/key_01"
+                    app:layout_constraintBottom_toBottomOf="@id/t_depth"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/t_depth"
+                    app:layout_constraintTop_toTopOf="@id/t_depth" />
+
+                <EditText
+                    android:id="@+id/t_depth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Tank Depth"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview6" />
+
+                <View
+                    android:id="@+id/dgview7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/t_depth"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_depth" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/overheat"
+                    app:layout_constraintBottom_toBottomOf="@id/t_offset"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/t_offset"
+                    app:layout_constraintTop_toTopOf="@id/t_offset" />
+
+                <EditText
+                    android:id="@+id/t_offset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview3"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Tank Offset"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview7" />
+
+                <View
+                    android:id="@+id/dgview8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/t_offset" />
+
+
+                <Button
+                    android:id="@+id/tankbtAddMotor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="40dp"
+                    android:backgroundTint="@color/btn_02"
+                    android:elevation="10dp"
+                    android:lineSpacingExtra="8sp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="Add Tank"
+                    android:textColor="@color/add_button_background_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dgview8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

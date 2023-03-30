@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PumpScheduleActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/head_bg"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_date"
+                android:gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="@string/schedular_day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.04"/>
+
+            <CheckBox
+                android:id="@+id/all_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all_days"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@id/et_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/et_date"
+                android:buttonTint="@color/btn_02"
+                tools:ignore="UnusedAttribute" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/date"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_date"
+                app:layout_constraintEnd_toStartOf="@id/et_date"
+                app:layout_constraintTop_toTopOf="@id/et_date"
+                tools:ignore="ContentDescription" />
+
+            <CheckBox
+                android:id="@+id/chkbx_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sunday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/et_date"
+                app:layout_constraintStart_toStartOf="@id/et_date"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <CheckBox
+                android:id="@+id/chkbx_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="100dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_date"
+                app:layout_constraintStart_toStartOf="@id/chkbx_0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <CheckBox
+                android:id="@+id/chkbx_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tueday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="100dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_date"
+                app:layout_constraintStart_toStartOf="@+id/chkbx_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <CheckBox
+                android:id="@+id/chkbx_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wednesday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/chkbx_0"
+                app:layout_constraintStart_toStartOf="@id/chkbx_0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <CheckBox
+                android:id="@+id/chkbx_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/thursday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="100dp"
+                app:layout_constraintTop_toBottomOf="@+id/chkbx_1"
+                app:layout_constraintStart_toStartOf="@+id/chkbx_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <CheckBox
+                android:id="@+id/chkbx_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/friday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="100dp"
+                app:layout_constraintTop_toBottomOf="@+id/chkbx_2"
+                app:layout_constraintStart_toStartOf="@id/chkbx_4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <CheckBox
+                android:id="@+id/chkbx_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/saturday"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/chkbx_3"
+                app:layout_constraintStart_toStartOf="@id/chkbx_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.02"
+                android:buttonTint="@color/colorPrimaryDark"
+                tools:ignore="UnusedAttribute" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_starttime"
+                android:focusableInTouchMode="false"
+                android:editable="false"
+                android:gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textSize="13sp"
+                android:drawableEnd="@drawable/time"
+                android:hint="@string/schedular_start"
+                app:layout_constraintTop_toBottomOf="@+id/chkbx_6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.05"
+                android:background="@drawable/tv_back"
+                tools:ignore="Autofill,TextFields" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/time"
+                android:layout_marginStart="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_starttime"
+                app:layout_constraintEnd_toStartOf="@id/et_starttime"
+                app:layout_constraintTop_toTopOf="@id/et_starttime"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_durlvl"
+                android:gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="@string/schedular_dur"
+                app:layout_constraintTop_toBottomOf="@+id/et_starttime"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.05" />
+
+            <RadioGroup
+                android:id="@+id/rg_durlvl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tv_durlvl"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.001">
+
+                <RadioButton
+                    android:id="@+id/rb_mins"
+                    style="@style/MyRadioButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="true"
+                    android:text="@string/sch_minutes"
+                    android:textSize="15sp"
+                    tools:ignore="UnusedAttribute" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rb_hours"
+                    android:checked="false"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/sch_hours"
+                    style="@style/MyRadioButtonStyle"
+                    android:textSize="15sp" />
+
+            </RadioGroup>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_endtime"
+                android:gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textSize="13sp"
+                android:inputType="number"
+                android:hint="@string/sch_minutes"
+                app:layout_constraintTop_toBottomOf="@+id/rg_durlvl"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.05"
+                android:background="@drawable/tv_back"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/time"
+                android:layout_marginStart="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_durlvl"
+                app:layout_constraintEnd_toStartOf="@+id/tv_durlvl"
+                app:layout_constraintTop_toTopOf="@+id/tv_durlvl"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|left"
+                android:id="@+id/et_refuelremark"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:paddingTop="7dp"
+                android:justificationMode="inter_word"
+                android:paddingBottom="7dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:inputType="textMultiLine"
+                android:textSize="13sp"
+                android:hint="Remark"
+                app:layout_constraintTop_toBottomOf="@+id/et_endtime"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.2"
+                android:background="@drawable/tv_back"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/remark"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/et_endtime"
+                app:layout_constraintEnd_toStartOf="@id/et_endtime"
+                app:layout_constraintTop_toBottomOf="@id/et_refuelremark"/>
+
+            <Button
+                android:id="@+id/save_refuel"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_01"
+                android:clickable="true"
+                android:text="@string/add_scVal"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/et_refuelremark"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/et_refuelremark"
+                app:layout_constraintTop_toBottomOf="@id/et_refuelremark"
+                app:layout_constraintVertical_bias="0.1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

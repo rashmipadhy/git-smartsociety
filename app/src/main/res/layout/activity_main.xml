@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:drawableTop="@drawable/dg"
                     android:layout_margin="10dp"
-                    android:text="DG Monitoring"
+                    android:text="DGs"
                     android:textColor="@color/black"
                     android:background="@drawable/main_button"/>
 
@@ -63,7 +63,7 @@
                     android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/water"
-                    android:text="Water Management"
+                    android:text="Water Tanks"
                     android:textColor="@color/black"
                     android:background="@drawable/main_button"/>
 
@@ -83,7 +83,7 @@
                     android:layout_weight="1"
                     android:drawableTop="@drawable/pump"
                     android:layout_margin="10dp"
-                    android:text="Pump Monitoring"
+                    android:text="Pumps"
                     android:textColor="@color/black"
                     android:background="@drawable/main_button"/>
 
@@ -94,22 +94,53 @@
                     android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/energy"
-                    android:text="Energy Management"
+                    android:text="Energy"
                     android:textColor="@color/black"
                     android:background="@drawable/main_button"/>
-
             </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llRow3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/llRow2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <Button
+                        android:id="@+id/blk_img"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/dg"
+                        android:layout_margin="10dp"
+                        android:text="blocks"
+                        android:textColor="@color/black"
+                        android:background="@drawable/main_button"/>
+
+                    <Button
+                        android:id="@+id/alert_img"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:drawableTop="@drawable/water"
+                        android:text="Alert"
+                        android:textColor="@color/black"
+                        android:background="@drawable/main_button"/>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
     </LinearLayout>
 
-      <com.google.android.material.navigation.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
+        android:background="@color/white"
+        app:itemIconTint="@color/btn_02"
+        app:itemTextColor="@color/black"
+          app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

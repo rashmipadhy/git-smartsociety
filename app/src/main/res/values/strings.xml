@@ -6,7 +6,37 @@
     <string name="energy">Energy Management</string>
     <string name="url_settings">URL</string>
     <string name="port_number">PORT NUMBER</string>
+    <string name="building">Select Building</string>
+    <string name="select_dg">Select Dg</string>
+    <string name="mtype">Maintenance Type</string>
+    <string-array name="strarray">
+        <item></item>
+        <item>Routine</item>
+        <item>Breakdown</item>
+    </string-array>
     <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="schedular_log">Schedule</string>
+    <string name="schedular_start">Start Time</string>
+    <string name="schedular_dur">Duration</string>
+    <string name="schedular_remv">Remove</string>
+    <string name="schedular_day">Days</string>
+    <string name="sunday">Sun</string>
+    <string name="monday">Mon</string>
+    <string name="tueday">Tue</string>
+    <string name="wednesday">Wed</string>
+    <string name="thursday">Thu</string>
+    <string name="friday">Fri</string>
+    <string name="saturday">Sat</string>
+    <string name="runtime">Runtime</string>
+    <string name="add_scVal">Add</string>
+    <string name="sch_minutes">Minutes</string>
+    <string name="sch_hours">Hours</string>
+    <string name="allow_in_2p">Permit the pump to run in two phase</string>
+    <string name="user_access">Users</string>
+    <string name="all_days">All Days</string>
+    <string name="app_type">Pump</string>
+    <string name="pump_runtime">Runtime</string>
+    <string name="email">Email</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -15,5 +45,37 @@
     <string name="action_settings">Settings</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
+    <string name="add_dg">Add DG</string>
+    <string name="dg_name">DG Name</string>
+    <string name="search">Search for DG</string>
+    <string name="org_id">Org ID</string>
+    <string name="loc">Location</string>
+    <string name="unitno">Unit No</string>
+    <string name="unitpin">Unit Pin</string>
+    <string name="dg_make">DG Make(kirloskar)</string>
+    <string name="dg_model">Model No</string>
+    <string name="dg_kva">KVA Rating</string>
+    <string name="log_info">Info</string>
+    <string name="initial_eng_reading">Initial Engine Reading(Hrs)</string>
+    <string name="log_dur">Duration (Mins)</string>
+    <string name="make">Make</string>
+    <string name="model">Model</string>
+    <string name="kva">KVA Ratings</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="max_fuel_tank">Max Fuel Tank Capacity(Litres)</string>
+    <string name="fuel_alert">Fuel Low Alert Level</string>
+    <string name="fuel_consmp">Fuel Consumption At Full Load(Ltrs/Hrs)</string>
+    <string name="routine_oil">Routine Oil Change Interval(Hrs)</string>
+    <string name="major_maint">Major Maintenance Intervals(Hrs)</string>
+    <string name="oil_overheat">Oil OverHeat Run Limit(Hrs)</string>
+    <string name="title_activity_block">BlockActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_alert">AlertActivity</string>
 </resources>

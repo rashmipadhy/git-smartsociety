@@ -18,12 +18,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.kfxlabs.smartsociety.Activity.AlertActivity;
+import com.kfxlabs.smartsociety.Activity.AlertsActivity;
+import com.kfxlabs.smartsociety.Activity.AppInfoActivity;
+import com.kfxlabs.smartsociety.Activity.BlockActivity;
 import com.kfxlabs.smartsociety.Activity.DgActivity;
-import com.kfxlabs.smartsociety.Activity.EnergyActivity;
 import com.kfxlabs.smartsociety.Activity.LoginActivity;
 import com.kfxlabs.smartsociety.Activity.ProfileActivity;
 import com.kfxlabs.smartsociety.Activity.PumpActivity;
+import com.kfxlabs.smartsociety.Activity.SettingActivity;
 import com.kfxlabs.smartsociety.Activity.WaterActivity;
+//import com.kfxlabs.smartsociety.databinding.DailogLayoutBinding;
+import com.kfxlabs.smartsociety.storage.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -32,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button waterbtn;
     Button pumpbtn;
     Button energybtn;
-
-
+    Button blockbtn;
+    Button alertbtn;
 
 
     static String phoneNumber, userName, email, orgId;
@@ -55,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         waterbtn = findViewById(R.id.water_img);
         pumpbtn = findViewById(R.id.pump_img);
         energybtn = findViewById(R.id.energy_img);
+        blockbtn = findViewById(R.id.blk_img);
+        alertbtn =findViewById(R.id.alert_img);
 
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -65,8 +73,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dgbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(MainActivity.this, DgActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -82,9 +92,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         energybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EnergyActivity.class);
-                startActivity(intent);
+                Toast.makeText(MainActivity.this, "No Data Available", Toast.LENGTH_SHORT).show();
+
             }
+
+
         });
 
         pumpbtn.setOnClickListener(new View.OnClickListener() {
@@ -94,13 +106,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
+
+        blockbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BlockActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        alertbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(MainActivity.this, "No Data Available", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AlertActivity.class);
+                startActivity(intent);
+            }
+        });
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
     }
-
     @Override
     public  void onBackPressed(){
         if(drawer.isDrawerOpen(GravityCompat.START)){
@@ -110,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -122,12 +148,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.setting_menu) {
+            Intent intent = new Intent(MainActivity.this, AppInfoActivity.class);
+            startActivity(intent);
             Toast.makeText(this, "Setting Menu", Toast.LENGTH_SHORT).show();
+
         } else if(item.getItemId() == R.id.bell_menu) {
-            Toast.makeText(this, "Bell Menu", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, AlertsActivity.class);
+            startActivity(intent);
+            Toast.makeText(this, "Alerts", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -140,24 +172,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtra("orgId",orgId);
                 startActivity(intent);
                 break;
-            case R.id.nav_logout:
-                SharedPreferences.Editor cred_editor = userCredentials.edit();
-
-                cred_editor.clear();
-
-                cred_editor.apply();
-
-                Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
-                intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent1);
-               MainActivity.this.finish();
-                break;
             case R.id.nav_notify:
+
+                Toast.makeText(MainActivity.this, "No Notification Available", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.nav_logout:
+
+                SharedPrefManager.getInstance(MainActivity.this).storeLoginInfo("False");
                 Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
+                MainActivity.this.finish();
                 break;
+
+            case R.id.action_settings:
+
+                Intent intent3 = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent3);
+                Toast.makeText(this, "Setting Menu", Toast.LENGTH_SHORT).show();
+                MainActivity.this.finish();
+                break;
+
         }
+
         return true;
+
     }
 }

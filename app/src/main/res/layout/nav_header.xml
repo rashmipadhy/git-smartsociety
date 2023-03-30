@@ -3,18 +3,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_01"
+    android:background="@drawable/head_bg"
     android:layout_gravity="bottom"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/hamburger"></ImageView>
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:src="@drawable/icon"></ImageView>
 
-    <TextView
+    <!--TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
@@ -24,6 +26,6 @@
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-    android:text="123456"/>
+    android:text="123456"/-->
 
 </LinearLayout>

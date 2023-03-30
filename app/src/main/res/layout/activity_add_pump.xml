@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AddPumpActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/head_bg"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+
+         <ImageView
+            android:id="@+id/dgimgnavbg"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="200dp"
+            android:src="@drawable/head_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.25">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dgcv_user_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/white"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:backgroundTint="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                tools:context="com.kfxlabs.dgApplication.motor.AddMotor">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/make"
+                    app:layout_constraintBottom_toBottomOf="@id/pumpName"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/pumpName"
+                    app:layout_constraintTop_toTopOf="@id/pumpName" />
+
+                <EditText
+                    android:id="@+id/pumpName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Pump Name"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/dgview1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/pumpName"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/pumpName" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/time_01"
+                    app:layout_constraintBottom_toBottomOf="@id/dget_initial_reading"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/dget_initial_reading"
+                    app:layout_constraintTop_toTopOf="@id/dget_initial_reading" />
+
+                <EditText
+                    android:id="@+id/dget_initial_reading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/initial_eng_reading"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview4" />
+
+                <View
+                    android:id="@+id/dgview5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/dget_initial_reading"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/dget_initial_reading" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/location"
+                    app:layout_constraintBottom_toBottomOf="@id/p_location"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/p_location"
+                    app:layout_constraintTop_toTopOf="@id/p_location" />
+
+                <EditText
+                    android:id="@+id/p_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/loc"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview5" />
+
+                <View
+                    android:id="@+id/dgview6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/p_location"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/p_location" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/make"
+                    app:layout_constraintBottom_toBottomOf="@id/dget_make"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/dget_make"
+                    app:layout_constraintTop_toTopOf="@id/dget_make" />
+
+                <EditText
+                    android:id="@+id/dget_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview2"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="Pump Make"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview1" />
+
+                <View
+                    android:id="@+id/dgview2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/dget_make"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/dget_make" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/model"
+                    app:layout_constraintBottom_toBottomOf="@id/p_model"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/p_model"
+                    app:layout_constraintTop_toTopOf="@id/p_model" />
+
+                <EditText
+                    android:id="@+id/p_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview3"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/dg_model"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview2" />
+
+                <View
+                    android:id="@+id/dgview3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/p_model"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/p_model" />
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="13dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/max_fuel"
+                    app:layout_constraintBottom_toBottomOf="@+id/p_kva"
+                    app:layout_constraintRight_toLeftOf="@id/p_kva"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/p_kva"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/p_kva"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/dg_kva"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview3" />
+
+                <View
+                    android:id="@+id/dgview4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/p_kva"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/p_kva" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/key_01"
+                    app:layout_constraintBottom_toBottomOf="@id/p_unumber"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/p_unumber"
+                    app:layout_constraintTop_toTopOf="@id/p_unumber" />
+
+                <EditText
+                    android:id="@+id/p_unumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview1"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/unitno"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview6" />
+
+                <View
+                    android:id="@+id/dgview7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/p_unumber"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/p_unumber" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@drawable/lock_01"
+                    app:layout_constraintBottom_toBottomOf="@id/p_pin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/p_pin"
+                    app:layout_constraintTop_toTopOf="@id/p_pin" />
+
+                <EditText
+                    android:id="@+id/p_pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dgview3"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/unitpin"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@id/dgview7" />
+
+                <View
+                    android:id="@+id/dgview8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/low_light_black"
+                    app:layout_constraintTop_toBottomOf="@id/p_pin" />
+
+
+                <Button
+                    android:id="@+id/dgbtAddMotor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="40dp"
+                    android:backgroundTint="@color/btn_02"
+                    android:elevation="10dp"
+                    android:lineSpacingExtra="8sp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="Add Pump"
+                    android:textColor="@color/add_button_background_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dgview8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

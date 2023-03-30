@@ -1,8 +1,10 @@
 package com.kfxlabs.smartsociety.Activity;
 
 import androidx.annotation.ContentView;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +13,13 @@ import android.text.Layout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,31 +42,27 @@ public class ChangePwdActivity extends AppCompatActivity {
     EditText CurrentPwd, NewPwd;
 
     SharedPrefManager sharedPrefManager;
-    MaterialToolbar toolbar;
-    /* private static String Cpassword;
-     private static String Npassword;*/
+
     com.kfxlabs.smartsociety.api.Upassword PwdAPIService;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pwd);
 
-   /* public View CreateView(@Nullable LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.activity_change_pwd, container, false);
-}*/
-      /*  super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_pwd);
-*/
+        Toolbar toolbar =findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
             getSupportActionBar().setTitle("Update Password");
         }
-        //userPhone=sharedPrefManager.getphoneNumb();
 
         //for update password
+
 
         CurrentPwd = findViewById(R.id.etPwd);
         NewPwd = findViewById(R.id.newPwd);
@@ -108,22 +111,7 @@ public class ChangePwdActivity extends AppCompatActivity {
                 Log.d("password",t.getMessage());
             }
         });
-  /*      PwdAPIService.savePost(pwd, npwd).enqueue(new Callback<UPasswordResponse>() {
-            @Override
-            public void onResponse(Call<UPasswordResponse> call, Response<UPasswordResponse> response) {
-                Log.d("password success",response.body().getReply());
-                Toast.makeText(ChangePwdActivity.this, "success", Toast.LENGTH_SHORT).show();
-                navigate();
 
-            }
-
-            @Override
-            public void onFailure(Call<UPasswordResponse> call, Throwable t) {
-                Toast.makeText(ChangePwdActivity.this, "t.", Toast.LENGTH_SHORT).show();
-                Log.d("password",t.getMessage());
-            }
-
-        });*/
 
     }
 
@@ -131,131 +119,32 @@ public class ChangePwdActivity extends AppCompatActivity {
         Intent intent = new Intent(ChangePwdActivity.this, LoginActivity.class);
         startActivity(intent);
     }
-}
-
-/*@Override
-    public void onClick(View v){
-
-        switch (v.getId()){
-            case R.id.Update:
-                updateUserPassword();
-                break;
 
 
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.nav_bar_01, menu);
 
-
-    }*/
-
-    /*private void updateUserPassword() {
-
-
-        String userCurrentPwd = CurrentPwd.getText().toString().trim();
-        String userNewPwd = NewPwd.getText().toString().trim();
-
-        if (userCurrentPwd.isEmpty()) {
-            CurrentPwd.setError("Empty Current Password");
-            CurrentPwd.requestFocus();
-            return;
-        }
-
-        if (userCurrentPwd.length() < 8) {
-            CurrentPwd.setError("Empty 8 Digit Password");
-            CurrentPwd.requestFocus();
-            return;
-        }
-        if (userNewPwd.isEmpty()) {
-            NewPwd.setError("Empty Current Password");
-            NewPwd.requestFocus();
-            return;
-        }
-
-        if (userNewPwd.length() < 8) {
-            NewPwd.setError("Empty 8 Digit Password");
-            NewPwd.requestFocus();
-            return;
-        }
-   *//*     if (TextUtils.isEmpty(NewPwd.getText())) {
-            NewPwd.setError("Empty Current Password");
-            NewPwd.requestFocus();
-            return;
-        }
-
-        if (NewPwd.length() < 8) {
-            NewPwd.setError("Empty 8 Digit Password");
-            NewPwd.requestFocus();
-            return;
-        }*//*
-
-
-            Call<UPasswordResponse> call = Api.getPwdAPIService().savePost(userCurrentPwd, userNewPwd);
-
-            call.enqueue(new Callback<UPasswordResponse>() {
-                @Override
-                public void onResponse(Call<UPasswordResponse> call, Response<UPasswordResponse> response) {
-
-                    UPasswordResponse passwordResponse = response.body();
-
-                    if (response.isSuccessful()) {
-
-
-                            Toast.makeText(ChangePwdActivity.this, "tytimed out", Toast.LENGTH_SHORT).show();
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<UPasswordResponse> call, Throwable t) {
-                    Toast.makeText(ChangePwdActivity.this, "timed out", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-    */
-
-   /* public void UpasswordPost(String pwd, String npwd) {
-
-        Log.d("URL", "sendPost: " + PwdAPIService.toString());
-        PwdAPIService.savePost(pwd, npwd).enqueue(new Callback<UPasswordResponse>() {
-            @Override
-            public void onResponse(Call<UPasswordResponse> call, Response<UPasswordResponse> response) {
-
-                Toast.makeText(ChangePwdActivity.this, "success", Toast.LENGTH_SHORT).show();
-                navigate(pwd, npwd);
-
-
-            }
-
-            @Override
-            public void onFailure(Call<UPasswordResponse> call, Throwable t) {
-
-            }
-
-        });
-
+        return true;
     }
 
-    public void navigate(String pwd, String npwd) {
-        Intent intent = new Intent(ChangePwdActivity.this, LoginActivity.class);
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int selected_item_id = item.getItemId();
+        if (selected_item_id == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
 }
-*/
-     /*   Call<String>
-        Call<UPasswordResponse> call = call.enqueue(new Callback<UPasswordResponse>() {
-            @Override
-            public void onResponse(Call<UPasswordResponse> call, Response<UPasswordResponse> response) {
-                UPasswordResponse passwordResponse= response.body();
-
-            if(response.isSuccessful()){
 
 
-            }
-            }
 
-
-            @Override
-            public void onFailure(Call<UPasswordResponse> call, Throwable t) {
-
-            }
-        });
-    }*/
 

@@ -41,4 +41,7 @@ public class RetrofitClient {
         return retrofit;
 
     }
+    public GetTankPlot getApi(){
+        return retrofit.create(GetTankPlot.class);
+    }
 }

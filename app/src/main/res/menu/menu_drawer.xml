@@ -2,17 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view"
-
     >
 
-    <group android:checkableBehavior="single"
-        >
-
-        <item
-            android:id="@+id/action_settings"
-            android:icon="@drawable/settings"
-            android:title="@string/action_settings"
-           />
+    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_profile"
@@ -22,16 +14,18 @@
             android:id="@+id/nav_notify"
             android:icon="@drawable/notify"
             android:title="Notification" />
+        <item
+            android:id="@+id/action_settings"
+            android:icon="@drawable/setting01"
+            android:iconTint="@color/btn_02"
+            android:title="@string/action_settings"
+            />
 
-
-
-    </group>
+ </group>
 
     <item
-        android:id="@+id/logout"
+        android:id="@+id/nav_logout"
         android:icon="@drawable/logout"
         android:title="Logout" />
-
-
 
 </menu>

@@ -58,7 +58,6 @@ public class OtpActivity extends AppCompatActivity {
     String androidId;
     String phoneNumber,email,orgId;
     boolean resendLinkEnable = false;
-    //    public static final String DG_DETAILS = "com.example.motorApplication.DgDetails";
     private static String app = "";
     Handler handle;
     int buttonMutation;
@@ -72,13 +71,11 @@ public class OtpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
         final String credentialsFileName = getIntent().getStringExtra("USER_CREDENTIALS");
-//        SharedPreferences prefs = getSharedPreferences(DG_DETAILS, MODE_PRIVATE);
-//        String jsonObject = prefs.getString("DG_DETAILS", "");
 
         phoneNumber = getIntent().getStringExtra("phoneNumber");
         email = getIntent().getStringExtra("emailID");
         orgId = getIntent().getStringExtra("orgId");
-        //androidId = RegistrationActivity.getANDROIDID();
+        androidId = RegistrationActivity.getANDROIDID();
         androidId = getAndroidId();
 
         final String userName = RegistrationActivity.userName;
@@ -136,7 +133,6 @@ public class OtpActivity extends AppCompatActivity {
         btOtpVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                int otp = Integer.parseInt(etOtp.getText().toString().trim());
                 String otp = Objects.requireNonNull(pinView.getText()).toString();
 
                 handle = new Handler(getMainLooper()) {
@@ -193,8 +189,6 @@ public class OtpActivity extends AppCompatActivity {
                         editor.putString("email", email);
                         editor.putString("orgId", orgId);
                         editor.apply();
-//                        dgInfoPost(androidID,uphone,app,dgDetailsFileName);
-
 
                         Handler handler = new Handler();
                         handler.postDelayed(() -> {
@@ -203,8 +197,7 @@ public class OtpActivity extends AppCompatActivity {
                                 navigate();
                             }
                         },2000);
-//                        Toast.makeText(DgOtpActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
-//                        navigate();
+
                         Log.d(TAG, "onResponse: success");
                     } else if (response.body().getReply().equals("Invalid PIN")) {
                         Toast.makeText(OtpActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
@@ -223,85 +216,6 @@ public class OtpActivity extends AppCompatActivity {
         });
     }
 
-//    public void dgInfoPost(final String androidID, final String uphone, String app, final String dgDetailsFileName) {
-//        final Gson gson = new Gson();
-//        Log.d("URL", "sendPost: " + dgInfoAPIService.toString());
-//        dgInfoAPIService.savePost(androidID, app, uphone).enqueue(new Callback<DgInfoPost>() {
-//            @Override
-//            public void onResponse(Call<DgInfoPost> call, Response<DgInfoPost> response) {
-//
-//                if (response.isSuccessful()) {
-//                    Log.i("POST1", "post submitted to API." + response.body().toString());
-//                    if(!(response.body().getUname()).isEmpty()) {
-//                        String responseStr = gson.toJson(response.body());
-//                        SharedPreferences.Editor editor = getSharedPreferences(dgDetailsFileName, MODE_PRIVATE).edit();
-//                        editor.clear();
-//                        editor.putString("DG_DETAILS", responseStr);
-//                        editor.apply();
-//                        loadingDialog.startLoadingDialog();
-//
-//                        Handler handler = new Handler();
-//                        handler.postDelayed(() -> {
-//                            if(!DgOtpActivity.this.isFinishing() && loadingDialog !=null){
-//                                loadingDialog.dismiss();
-//                            }
-//                        },2000);
-////                        navigate();
-//                    }
-//                }
-//                try {
-//                    if (response.errorBody() != null) {
-//                        JSONObject jObjError = new JSONObject(response.errorBody().string());
-//                        Toast.makeText(getApplicationContext(), jObjError.getString("Reply"), Toast.LENGTH_LONG).show();
-//                    }
-//                } catch (Exception e) {
-//                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<DgInfoPost> call, Throwable t) {
-//                if (t instanceof SocketTimeoutException) {
-//                    Log.e("POST", "Unable to submit post to API.Connection time out");
-//                    Toast.makeText(DgOtpActivity.this, "Unable to submit post to API.Connection timed out", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        });
-//    }
-
-    /*public void fcmtokenPost(final String androidId,final String uphone){
-        getInstance().getInstanceId().addOnSuccessListener(OtpActivity.this, task -> {
-            if (task!=null){  String token = Objects.requireNonNull(task.getToken());
-                fAPIService.savePost(androidId,uphone,token).enqueue(new Callback<FcmTokenPost>() {
-                    @Override
-                    public void onResponse(Call<FcmTokenPost> call, Response<FcmTokenPost> response) {
-                        if (response.isSuccessful()){
-                            if(response.body().getReply().equals("OK")){
-                         Toast.makeText(OtpActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
-
-                                if(isNetworkAvailable()){
-                                    navigate();
-                                }else{
-                                    Toast.makeText(OtpActivity.this, "Please check the internet connection", Toast.LENGTH_SHORT).show();
-                                }
-
-                            }else {
-                                Toast.makeText(OtpActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<FcmTokenPost> call, Throwable t) {
-                        Log.e("POST", "Unable to submit post to API.Please check the URL");
-                    }
-                });
-            }else{
-                Toast.makeText(OtpActivity.this, "Unsuccessful response", Toast.LENGTH_LONG).show();
-            }
-        });
-    }*/
 
     public void sendPost(String androidID,String app, String uname, final String uphone,String umail,String orgId) {
 
@@ -312,7 +226,6 @@ public class OtpActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     Log.i("POST", "post submitted to API." + response.body().toString());
-//                    Toast.makeText(DgOtpActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
 
                 }
                 try {
@@ -410,7 +323,6 @@ public class OtpActivity extends AppCompatActivity {
                     tvOtpTimer.setText(String.format("%s%s%s", m, ":", sec));
                     s = s - 1;
                     second =  second - 1;
-                    //here you can have your logic to set text to edittext
                 }
 
                 public void onFinish() {

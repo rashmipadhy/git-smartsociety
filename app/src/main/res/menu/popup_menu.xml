@@ -3,7 +3,8 @@
 
     <item
         android:id="@+id/java"
-        android:title="Tank 1" />
+        android:title="Tank 1"
+        android:checked="true"/>
 
     <item
         android:id="@+id/kotlin"

@@ -1,18 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kfxlabs.smartsociety">
+    package="com.kfxlabs.smartsociety" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartSociety"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".Activity.AlertActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.CedarbolckActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.BlockActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Activity.TankPlotActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.DgAlertsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AlertsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AppInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.OutflowLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.InflowLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.TankActivityList"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AddTankActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PumpSetting"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PumpListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AddPumpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.progress"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PumpPowerLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PumpScheduleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PumpRunLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AddMaintActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AddFuel_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.MaintainanceLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.FuelLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.PowerLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.RunLogActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.DgSettings"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.AddDgActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.DgListActivity"
+            android:exported="true" />
         <activity
             android:name=".Activity.EnergyActivity"
             android:exported="true" />
@@ -21,8 +104,7 @@
             android:exported="true" />
         <activity
             android:name=".Activity.WaterActivity"
-            android:exported="true"
-            />
+            android:exported="true" />
         <activity
             android:name=".Activity.DgActivity"
             android:exported="true" />
@@ -40,19 +122,19 @@
             android:exported="true" />
         <activity
             android:name=".Activity.LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.OtpActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.RegistrationActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity.OtpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.RegistrationActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

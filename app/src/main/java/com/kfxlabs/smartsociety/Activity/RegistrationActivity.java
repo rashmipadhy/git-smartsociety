@@ -1,16 +1,15 @@
 package com.kfxlabs.smartsociety.Activity;
 
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-//import android.annotation.SuppressLint;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-//import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -75,8 +74,10 @@ public class RegistrationActivity extends AppCompatActivity {
     public static String phoneNumber;
     public static String emailId;
     public static String orgId;
+  public static String SHARED_PREF_NAME="my_shared_pref";
 
     //@SuppressLint("HardwareIds")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,9 +94,7 @@ public class RegistrationActivity extends AppCompatActivity {
         etOrgId = findViewById(R.id.etrOrgid);
         eLogin = findViewById(R.id.rLogin);
         progressDialog =  new ProgressDialog(RegistrationActivity.this);
-
         imgbtnSettings = findViewById(R.id.imagbtnSettings);
-
         imgbtnSettings.setBackgroundColor(getResources().getColor(R.color.transparent));
 
 
@@ -151,6 +150,12 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
         btRegister.setOnClickListener(v -> {
+
+            SharedPreferences sharedPrefManager = getSharedPreferences(RegistrationActivity.SHARED_PREF_NAME,0);
+            SharedPreferences.Editor editor = sharedPrefManager.edit();
+
+            editor.putBoolean("Registered",true);
+            editor.commit();
          userName = etUserName.getText().toString().trim();
          password = etPassword.getText().toString().trim();
          phoneNumber = etPhoneNumber.getText().toString().trim();
@@ -161,49 +166,66 @@ public class RegistrationActivity extends AppCompatActivity {
              etUserName.onEditorAction(EditorInfo.IME_ACTION_DONE);
              etPhoneNumber.onEditorAction(EditorInfo.IME_ACTION_DONE);
              Toast.makeText(RegistrationActivity.this, "Please enter the Username,Phone number and orgId", Toast.LENGTH_LONG).show();
+
          } else if (password.isEmpty()) {
              etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
              Toast.makeText(RegistrationActivity.this, "Username is Empty", Toast.LENGTH_LONG).show();
+
          }
+
          else if (userName.isEmpty()) {
              etUserName.onEditorAction(EditorInfo.IME_ACTION_DONE);
              Toast.makeText(RegistrationActivity.this, "Username is Empty", Toast.LENGTH_LONG).show();
          }
+
          else if (phoneNumber.isEmpty()) {
              etPhoneNumber.onEditorAction(EditorInfo.IME_ACTION_DONE);
              Toast.makeText(RegistrationActivity.this, "Phone Number is Empty", Toast.LENGTH_LONG).show();
          }
+
          else if (orgId.isEmpty()) {
              etOrgId.onEditorAction(EditorInfo.IME_ACTION_DONE);
              Toast.makeText(RegistrationActivity.this, "OrgId is Empty", Toast.LENGTH_LONG).show();
          }
+
          else if (emailId.isEmpty()) {
              etEmailID.onEditorAction(EditorInfo.IME_ACTION_DONE);
              Toast.makeText(RegistrationActivity.this, "EmailId is Empty", Toast.LENGTH_LONG).show();
          }
+
          else {
-               boolean borgId= Pattern.matches("[0-9]{10}", orgId);
+
+             boolean borgId= Pattern.matches("[0-9]{10}", orgId);
              boolean bEmailID = Pattern.matches("^([a-zA-Z0-9_\\-.]+)@([a-zA-Z0-9_\\-.]+)\\.([a-zA-Z]{2,5})$", emailId);
 
-
              if(!bEmailID)
+
              {
                  etEmailID.onEditorAction(EditorInfo.IME_ACTION_DONE);
                  Toast.makeText(RegistrationActivity.this, "Invalid email id", Toast.LENGTH_LONG).show();
              }
+
              if(!borgId)
              {
                  etOrgId.onEditorAction(EditorInfo.IME_ACTION_DONE);
              }
+
              if (!(phoneNumber.length()>9))
+
              {
+
                  Toast.makeText(RegistrationActivity.this, "Phone number must be minimum 10 digits", Toast.LENGTH_LONG).show();
+
              }
+
              else if(!bEmailID)
+
              {
                  Toast.makeText(RegistrationActivity.this, "Please enter the correct EMAIL ID", Toast.LENGTH_LONG).show();
              }
+
              else {
+
                  etUserName.onEditorAction(EditorInfo.IME_ACTION_DONE);
                  etPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
                  etPhoneNumber.onEditorAction(EditorInfo.IME_ACTION_DONE);
@@ -225,13 +247,8 @@ public class RegistrationActivity extends AppCompatActivity {
              }
          }
 
-
-
-
-     });
-
-}
-
+        });
+    }
 
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -249,29 +266,20 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                     Log.i("POST", "post submitted to API." + response.body().toString());
-                    /*SharedPrefManager.getInstance(RegistrationActivity.this).
-                            storeUserInfo(uname, uphone, umail);*/
-
 
                      SharedPrefManager.getInstance(RegistrationActivity.this).storeUserInfo(uname,uphone,umail,orgid,pwd);
                      SharedPrefManager.getInstance(RegistrationActivity.this).storeUserPwd(pwd);
-//RN2611
 
-                   /* System.out.println("value for umail:" + umail);
-                    User user = new User(123,"A@gmail.com","Sagar","chris");
+                     //RN2611
 
-                    int id1 = user.getId();
-                    System.out.println("Value of id:" + id1);
-                    SharedPrefManager.getInstance(RegistrationActivity.this).saveUser(LoginResponse.getUser());*/
-
-
-                    Toast.makeText(RegistrationActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
-                    navigate(uphone, credentialsFileName);
+                     Toast.makeText(RegistrationActivity.this, response.body().getReply(), Toast.LENGTH_LONG).show();
+                     navigate(uphone, credentialsFileName);
                 }
 
                 else {
                     Log.i("POST", "failed");
                 }
+
                 try {
                     Log.i("POST", "post submitted to API." + response.body().toString());
                     if (response.errorBody() != null) {
@@ -295,23 +303,19 @@ public class RegistrationActivity extends AppCompatActivity {
                     Log.i("POST", "post failed."+ t.getMessage());
                 }
             }
-
-
         });
     }
 
-
-
     public void navigate(String phoneNumber, String credentialsFileName) {
-        Intent intent = new Intent(RegistrationActivity.this, OtpActivity.class);
-        intent.putExtra("androidID", "");
-        intent.putExtra("password", password);
-        intent.putExtra("phoneNumber", phoneNumber);
-        intent.putExtra("userName", userName);
-        intent.putExtra("emailID", emailId);
-        intent.putExtra("orgId", orgId);
-        intent.putExtra("USER_CREDENTIALS", credentialsFileName);
-        startActivity(intent);
+         Intent intent = new Intent(RegistrationActivity.this, OtpActivity.class);
+         intent.putExtra("androidID", "");
+         intent.putExtra("password", password);
+         intent.putExtra("phoneNumber", phoneNumber);
+         intent.putExtra("userName", userName);
+         intent.putExtra("emailID", emailId);
+         intent.putExtra("orgId", orgId);
+         intent.putExtra("USER_CREDENTIALS", credentialsFileName);
+         startActivity(intent);
     }
 
 
@@ -324,6 +328,7 @@ public class RegistrationActivity extends AppCompatActivity {
         assert wifiNetworkInfo != null;
         return activeNetworkInfo != null && (activeNetworkInfo.isConnected()||wifiNetworkInfo.isConnected());
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -342,7 +347,6 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onBackPressed() {
@@ -367,15 +371,12 @@ public class RegistrationActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 com.google.android.gms.auth.api.credentials.Credential credential = data.getParcelableExtra(Credential.EXTRA_KEY);
                 if (credential != null) {
-                    credential.getId();  //<-- will need to process phone number string
+                    credential.getId(); //<-- will need to process phone number string
                 }
             }
         }
     }
-
-
-
-}
+  }
 
 
 

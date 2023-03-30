@@ -10,6 +10,5 @@ public interface GetSetting {
 
     @GET("/dg_settings")
     Call<SettingGet> savePost(@Query("androidID") String androidID,
-                              @Query("uphone") String uphone,
                               @Query("devid") String devid);
 }

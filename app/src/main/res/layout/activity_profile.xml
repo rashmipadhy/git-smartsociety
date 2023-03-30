@@ -9,6 +9,12 @@
     android:orientation="vertical"
     tools:context=".Activity.ProfileActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_1"
         android:layout_width="match_parent"
@@ -17,96 +23,131 @@
         android:background="@drawable/head_bg"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/tv_pphone"
-        android:layout_width="252dp"
-        android:layout_height="47dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="32dp"
-        android:drawableStart="@drawable/phone_01"
-        android:drawablePadding="10dp"
-        android:editable="false"
-        android:hint="PhoneNumber"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_pmail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_pmail"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pmail" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-    <EditText
-        android:id="@+id/tv_pmail"
-        android:layout_width="252dp"
-        android:layout_height="47dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="32dp"
-        android:drawableStart="@drawable/mail_01"
-        android:drawablePadding="10dp"
-        android:editable="false"
-        android:hint="Email-Id"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_puser"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_puser"
-        app:layout_constraintTop_toBottomOf="@+id/tv_puser" />
-
-    <EditText
-        android:id="@+id/tv_orgid"
-        android:layout_width="252dp"
-        android:layout_height="47dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="28dp"
-        android:drawableStart="@drawable/key_01"
-        android:drawablePadding="10dp"
-        android:editable="false"
-        android:hint="OrgId"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_pphone"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_pphone"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pphone" />
-
-    <EditText
-        android:id="@+id/tv_puser"
-        android:layout_width="252dp"
-        android:layout_height="47dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="435dp"
-        android:drawableStart="@drawable/user_01"
-        android:drawablePadding="10dp"
-        android:editable="false"
-        android:hint="Username"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/Cpwdbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:backgroundTint="@color/dark_blue"
-        android:text="Change Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tv_orgid"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="@+id/tv_orgid"
-        app:layout_constraintTop_toBottomOf="@+id/tv_orgid" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_01"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
 
+            <EditText
+                android:id="@+id/tv_puser"
+                android:layout_width="252dp"
+                android:layout_height="47dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="435dp"
+                android:drawableStart="@drawable/user_01"
+                android:drawablePadding="10dp"
+                android:editable="false"
+                android:hint="Username"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/logo"
+                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintStart_toStartOf="@+id/logo"
+                app:layout_constraintTop_toBottomOf="@+id/logo"
+                app:layout_constraintVertical_bias="3.0" />
+
+            <EditText
+                android:id="@+id/tv_pmail"
+                android:layout_width="252dp"
+                android:layout_height="47dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="28dp"
+                android:drawableStart="@drawable/mail_01"
+                android:drawablePadding="10dp"
+                android:editable="false"
+                android:hint="Email-Id"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_puser"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_puser"
+                app:layout_constraintTop_toBottomOf="@+id/tv_puser" />
+
+            <EditText
+                android:id="@+id/tv_pphone"
+                android:layout_width="252dp"
+                android:layout_height="47dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="28dp"
+                android:drawableStart="@drawable/phone_01"
+                android:drawablePadding="10dp"
+                android:editable="false"
+                android:hint="PhoneNumber"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_pmail"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_pmail"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pmail" />
+
+            <EditText
+                android:id="@+id/tv_orgid"
+                android:layout_width="252dp"
+                android:layout_height="47dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="28dp"
+                android:drawableStart="@drawable/location"
+                android:drawablePadding="10dp"
+                android:editable="false"
+                android:hint="Society"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_pphone"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_pphone"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pphone" />
+
+
+            <Button
+                android:id="@+id/Cpwdbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/dark_blue"
+                android:text="Change Password"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_orgid"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="@+id/tv_orgid"
+                app:layout_constraintTop_toBottomOf="@+id/tv_orgid" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </FrameLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

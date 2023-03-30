@@ -9,22 +9,32 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.kfxlabs.smartsociety.R;
+import com.kfxlabs.smartsociety.api.Api;
+import com.kfxlabs.smartsociety.module.Profile;
 import com.kfxlabs.smartsociety.module.User;
 import com.kfxlabs.smartsociety.storage.SharedPrefManager;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ProfileActivity extends AppCompatActivity {
-    EditText userName,userphone,email,orgid;
+    EditText userName,userphone,email,cname;
     Button uButton;
     MaterialToolbar toolbar;
+    com.kfxlabs.smartsociety.api.GetProfile mAPIService = Api.getGetProfileAPIService(ProfileActivity.this);
+    com.kfxlabs.smartsociety.api.GetProfile getProfileAPIService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,26 +44,19 @@ public class ProfileActivity extends AppCompatActivity {
         userName =findViewById(R.id.tv_puser);
         userphone =findViewById(R.id.tv_pphone);
         email =findViewById(R.id.tv_pmail);
-        orgid =findViewById(R.id.tv_orgid);
+       // orgid =findViewById(R.id.tv_orgid);
         uButton = findViewById(R.id.Cpwdbtn);
+        cname =findViewById(R.id.tv_orgid);
+        getProfileAPIService = Api.getGetProfileAPIService(ProfileActivity.this);
 
         uButton.setOnClickListener(v -> {
             Intent intent = new Intent(ProfileActivity.this,ChangePwdActivity.class);
             startActivity(intent);
         });
 
-//        User user = SharedPrefManager.getInstance(this).getUser();
-        String storedUserInfo = SharedPrefManager.getInstance(this).getUserInfo();
-        String storedUserphone = SharedPrefManager.getInstance(this).getphoneNumb();
 
-        String storedEmail = SharedPrefManager.getInstance(this).getEmail();
-
-        /*userName.setText("hello  " + ""
-                );*/
-        userName.setText(storedUserInfo);
-        userphone.setText(storedUserphone);
-        email.setText(storedEmail);
-
+        Log.d("tag","oncreate : mAPIService" + mAPIService);
+        profileGet();
 
         toolbar = findViewById(R.id.toolbar_1);
         setSupportActionBar(toolbar);
@@ -62,10 +65,30 @@ public class ProfileActivity extends AppCompatActivity {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.back);
             getSupportActionBar().setTitle("Profile");
         }
-
-
     }
 
+    public void profileGet(){
+        mAPIService.savePost().enqueue(new Callback<Profile>() {
+            @Override
+            public void onResponse(Call<Profile> call, Response<Profile> response) {
+                if (response.isSuccessful()){
+                    Log.i("POST", "post submitted to API." + response.body().toString());
+                      userName.setText(response.body().getUname());
+                      userphone.setText(response.body().getPhone());
+                    email.setText(response.body().getEmail());
+                    cname.setText(response.body().getCname());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Profile> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Unable to submit post to API.Response gets failed", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

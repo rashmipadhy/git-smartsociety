@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.FuelLogActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/head_bg"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TableLayout
+        android:id="@+id/fuel_tble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:textAlignment="center"
+                android:text="Date"
+                android:gravity="center"
+                android:background="#f2f2f2"
+                android:layout_weight="1"
+                android:textSize="9sp"
+                android:textColor="@color/black"/>
+
+            <View android:layout_height="35dp"
+                android:layout_width="1dp"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:text="Time"
+                android:background="#f2f2f2"
+                android:textColor="@color/black"/>
+
+            <View android:layout_height="35dp"
+                android:layout_width="1dp"
+                android:background="@color/black"/>
+            <TextView
+                android:id="@+id/ffill"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:text="Fuel Added"
+                android:background="#f2f2f2"
+                android:layout_weight="1"
+                android:textSize="10sp"
+                android:textColor="@color/black"/>
+
+            <View android:layout_height="35dp"
+                android:layout_width="1dp"
+                android:background="@color/black"/>
+
+     <!--       <RelativeLayout
+                android:id="@+id/fremarklayout"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="#f2f2f2"
+                android:layout_height="35dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/fremark_icon"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+
+                    android:scaleType="fitCenter"
+                    android:text="Remark"
+                    android:src="@drawable/remark" />
+
+            </RelativeLayout>-->
+
+            <TextView
+
+                android:id="@+id/fremark_text_02"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:textAlignment="center"
+                android:background="#f2f2f2"
+                android:gravity="center"
+                android:text="Remark"
+                android:layout_weight="2"
+                android:textSize="10sp"
+                android:textColor="@color/black"/>
+
+            <View android:layout_height="35dp"
+                android:layout_width="1dp"
+                android:background="@color/black"/>
+
+            <TextView
+                android:id="@+id/new_fuel"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:textAlignment="center"
+                android:background="#f2f2f2"
+                android:gravity="center"
+                android:text="New Level"
+                android:layout_weight="1"
+                android:textSize="10sp"
+                android:textColor="@color/black"/>
+
+            <View android:layout_height="35dp"
+                android:layout_width="1dp"
+                android:background="@color/black"/>
+
+
+
+        </TableRow>
+
+
+    </TableLayout>
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fuel_tble"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/fuel_tble">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="@color/btn_02"
+        android:src="@drawable/ic_baseline_add_24"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
